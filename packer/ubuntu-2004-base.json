@@ -1,0 +1,67 @@
+{
+    "builders": [{
+      "name": "ubuntu-2004-base",
+      "vm_name": "ubuntu-2004-base",
+      "type": "vmware-iso",
+      "skip_export": true,
+      "guest_os_type": "ubuntu-64",
+      "tools_upload_flavor": "linux",
+      "headless": false,
+      "vnc_disable_password": true,
+  
+      "iso_url": "https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-live-server-amd64.iso?_ga=2.12714103.1301138925.1631723609-365061714.1630706533",
+      "iso_checksum": "f8e3086f3cea0fb3fefb29937ab5ed9d19e767079633960ccb50e76153effc98",
+  
+      "ssh_username": "nullgrid",
+      "ssh_password": "nullgrid",
+      "ssh_timeout": "15m",
+  
+      "disk_type_id": "thin",
+      "cpus": 2,
+      "memory": 2048,
+  
+      "floppy_files": [
+        "preseed/ubuntu.cfg"
+      ],
+  
+      "boot_command": [
+        "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "/install/vmlinuz noapic ",
+        "preseed/file=/floppy/ubuntu.cfg ",
+        "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+        "hostname={{ .Name }} ",
+        "fb=false debconf/frontend=noninteractive ",
+        "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+        "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+        "grub-installer/bootdev=/dev/sda ",
+        "initrd=/install/initrd.gz -- <enter>"
+      ],
+  
+      "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'nullgrid'|sudo -S sh 'shutdown.sh'",
+  
+      "remote_type": "esx5",
+      "remote_host": "{{user `esxi_host`}}",
+      "remote_datastore": "{{user `esxi_datastore`}}",
+      "remote_username": "{{user `esxi_username`}}",
+      "remote_password": "{{user `esxi_password`}}",
+      "keep_registered": true,
+  
+      "vmx_data": {
+        "ethernet0.networkName": "VM Network"
+      }
+    }],
+  
+    "provisioners": [
+      {
+        "type": "shell",
+        "scripts": [
+          "scripts/open-vm-tools.sh"
+        ],
+  
+        "execute_command": "echo 'nullgrid' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'"
+      }
+    ]
+  }
