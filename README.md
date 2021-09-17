@@ -7,3 +7,8 @@ Automation to build up a Dev environment
 packer build -var-file variables.json packer-build.json
 ###
 
+# Use docker to build flask app
+
+###
+./dockerbuild.sh
+###
