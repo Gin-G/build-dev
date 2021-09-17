@@ -58,7 +58,9 @@
       {
         "type": "shell",
         "scripts": [
-          "scripts/open-vm-tools.sh"
+          "scripts/open-vm-tools.sh",
+          "scripts/install-git.sh",
+          "scripts/install-docker.sh"
         ],
   
         "execute_command": "echo 'nullgrid' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'"
