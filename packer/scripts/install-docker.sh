@@ -1,3 +1,3 @@
 #!/bin/sh
 
-apt-get install -qy docker
+sudo apt -qy install docker.io

@@ -60,10 +60,13 @@
         "scripts": [
           "scripts/open-vm-tools.sh",
           "scripts/install-git.sh",
-          "scripts/install-docker.sh"
+          "scripts/install-docker.sh",
+          "scripts/git-clone.sh",
+          "scripts/docker-build.sh",
+          "docker/dockerbuild.sh"
         ],
   
-        "execute_command": "echo 'nullgrid' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'"
+        "execute_command": "echo 'nullgrid' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'",
       }
     ]
   }

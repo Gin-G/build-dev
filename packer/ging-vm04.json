@@ -1,7 +1,13 @@
 {
+    "variables": {
+        "hostname": "ging-vm04",
+        "domain": "local",
+        "ssh_user": "packer",
+        "ssh_pass": "p@ck3r"
+    },
     "builders": [{
-      "name": "ging-vm02",
-      "vm_name": "ging-vm02",
+      "name": "ging-vm04",
+      "vm_name": "ging-vm04",
       "type": "vmware-iso",
       "skip_export": true,
       "guest_os_type": "ubuntu-64",
@@ -12,8 +18,8 @@
       "iso_url": "http://old-releases.ubuntu.com/releases/xenial/ubuntu-16.04.2-server-amd64.iso",
       "iso_checksum": "737ae7041212c628de5751d15c3016058b0e833fdc32e7420209b76ca3d0a535",
   
-      "ssh_username": "nullgrid",
-      "ssh_password": "nullgrid",
+      "ssh_username": "ging",
+      "ssh_password": "da5id676",
       "ssh_timeout": "15m",
   
       "disk_type_id": "thin",
@@ -58,7 +64,11 @@
       {
         "type": "shell",
         "scripts": [
-          "scripts/open-vm-tools.sh"
+          "scripts/open-vm-tools.sh",
+          "scripts/install-git.sh",
+          "scripts/install-docker.sh",
+          "scripts/git-clone.sh",
+          "scripts/docker-build.sh"
         ],
   
         "execute_command": "echo 'nullgrid' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'"
