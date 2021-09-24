@@ -1,13 +1,13 @@
 {
     "variables": {
-        "hostname": "ging-vm04",
+        "hostname": "ging-vm02",
         "domain": "local",
-        "ssh_user": "packer",
-        "ssh_pass": "p@ck3r"
+        "ssh_user": "ging",
+        "ssh_pass": "da5id676"
     },
     "builders": [{
-      "name": "ging-vm04",
-      "vm_name": "ging-vm04",
+      "name": "ging-vm02",
+      "vm_name": "ging-vm02",
       "type": "vmware-iso",
       "skip_export": true,
       "guest_os_type": "ubuntu-64",
@@ -46,7 +46,7 @@
         "initrd=/install/initrd.gz -- <enter>"
       ],
   
-      "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'nullgrid'|sudo -S sh 'shutdown.sh'",
+      "shutdown_command": "echo 'shutdown -P now' > shutdown.sh; echo 'ging'|sudo -S sh 'shutdown.sh'",
   
       "remote_type": "esx5",
       "remote_host": "{{user `esxi_host`}}",
@@ -71,7 +71,7 @@
           "scripts/docker-build.sh"
         ],
   
-        "execute_command": "echo 'nullgrid' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'"
+        "execute_command": "echo 'ging' | {{ .Vars }} sudo -E -S bash '{{ .Path }}'"
       }
     ]
   }

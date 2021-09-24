@@ -2,6 +2,7 @@ import sqlite3
 from flask import Flask, escape, request, render_template
 from werkzeug.exceptions import abort
 from ESPNAPIs import *
+from get_nfl_data import *
 
 app = Flask(__name__)
 
@@ -39,6 +40,22 @@ def CHI():
 @app.route('/CIN')
 def CIN():
     return get_CIN()
+
+@app.route('/QB')
+def QB():
+    return get_qb_data()
+
+@app.route('/RB')
+def RB():
+    return get_rb_data()
+
+@app.route('/WR')
+def WR():
+    return get_wr_data()
+
+@app.route('/TE')
+def TE():
+    return get_te_data()
 
 @app.route('/Athletes')
 def Athletes():

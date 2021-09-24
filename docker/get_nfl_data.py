@@ -15,7 +15,7 @@ def get_qb_data():
     qbdf.drop(['YPA', 'FPT', 'Y/R'], axis=1, inplace=True)
     qb_cols = ['Name', 'Games played', 'Completions', 'Attempts', 'Passing Yards', 'Passing TDs', 'Interceptions', 'Rushing attempts', 'Rushing Yards', 'Rushing TDs']
     qbdf.columns = qb_cols
-    return qbdf
+    return qbdf.to_dict(orient='records')
 
 def get_rb_data():
     with open('teams.json') as teams:
@@ -28,7 +28,7 @@ def get_rb_data():
     rbdf.drop(['Y/R', 'Y/R.1', 'FPT'], axis=1, inplace=True)
     rb_cols = ['Name', 'Games played', 'Rushing attempts', 'Rushing Yards', 'Rushing TDs', 'Targets', 'Receptions', 'Recieving Yards', 'Recieving TDs']
     rbdf.columns = rb_cols
-    return rbdf.sort_values(['Rushing attemps'], ascending=True) 
+    return str(rbdf.sort_values(['Rushing attemps'], ascending=True)) 
 
 def get_wr_data():
     with open('teams.json') as teams:
@@ -41,7 +41,7 @@ def get_wr_data():
     wrdf.drop(['Y/R', 'Y/R.1', 'FPT'], axis=1, inplace=True)
     wr_cols = ['Name', 'Games played', 'Rushing attempts', 'Rushing Yards', 'Rushing TDs', 'Targets', 'Receptions', 'Recieving Yards', 'Recieving TDs']
     wrdf.columns = wr_cols
-    return wrdf.sort_values(['Targets'], ascending=True)
+    return str(wrdf.sort_values(['Targets'], ascending=True))
 
 def get_te_data():
     with open('teams.json') as teams:
@@ -54,5 +54,5 @@ def get_te_data():
     tedf.drop(['Y/R', 'FPT'], axis=1, inplace=True)
     te_cols = ['Name', 'Games played', 'Targets', 'Receptions', 'Recieving Yards', 'Recieving TDs']
     tedf.columns = te_cols
-    return tedf.sort_values(['Targets'], ascending=True)  
+    return str(tedf.sort_values(['Targets'], ascending=True)) 
 
