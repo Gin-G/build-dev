@@ -1,0 +1,80 @@
+[{
+    "City": "Baltimore",
+    "abr": "rav",
+    "div": "AFC"
+},
+{
+    "City": "Buffalo",
+    "abr": "buf",
+    "div": "AFC"
+},
+{
+    "City": "Cincinnati",
+    "abr": "cin",
+    "div": "AFC"
+},
+{
+    "City": "Cleveland",
+    "abr": "cle",
+    "div": "AFC"
+},
+{
+    "City": "Denver",
+    "abr": "den",
+    "div": "AFC"
+},
+{
+    "City": "Houston",
+    "abr": "htx",
+    "div": "AFC"
+},
+{
+    "City": "Indianapolis",
+    "abr": "clt",
+    "div": "AFC"
+},
+{
+    "City": "Jacksonville",
+    "abr": "jax",
+    "div": "AFC"
+},
+{
+    "City": "Kansas City",
+    "abr": "kan",
+    "div": "AFC"
+},
+{
+    "City": "Los Angeles (Chargers)",
+    "abr": "sdg",
+    "div": "AFC"
+},
+{
+    "City": "Las Vegas",
+    "abr": "rai",
+    "div": "AFC"
+},
+{
+    "City": "Miami",
+    "abr": "mia",
+    "div": "AFC"
+},
+{
+    "City": "New England",
+    "abr": "nwe",
+    "div": "AFC"
+},
+{
+    "City": "New York (Jets)",
+    "abr": "nyj",
+    "div": "AFC"
+},
+{
+    "City": "Pittsburgh",
+    "abr": "pit",
+    "div": "AFC"
+},
+{
+    "City": "Tennessee",
+    "abr": "oti",
+    "div": "AFC"
+}]
