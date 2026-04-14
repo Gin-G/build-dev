@@ -1,6 +1,6 @@
 requests
-jq==1.2.1
-Flask==2.3.2
+jq
+Flask
 Werkzeug
-lxml==4.9.2
-pandas==1.2.1
+lxml
+pandas
